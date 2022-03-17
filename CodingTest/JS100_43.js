@@ -1,9 +1,15 @@
-let n = prompt('숫자를 입력하세요.');
-let sum = 0;
+let a = prompt('10진수를 입력해주세요.')
+let b = [];
+let result = '';
 
-while(n !== 0){
-    sum += (n % 10);
-    n = Math.floor(n/10);
+while (a){
+	b.push(a % 2);
+	a = parseInt(a / 2, 10);
 }
+b.reverse();
 
-console.log(sum)
+b.forEach((n) => {
+  result += n;
+})
+
+console.log(result);
