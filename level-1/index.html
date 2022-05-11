@@ -12,12 +12,40 @@
 <body>
 
   <div class="alert-box" id="alert">
-    알림창
-    <button onclick="document.getElementById('alert').style.display = 
-  'none';">닫기</button>
+    <p class="title">알림창</p>
+    <button id="close">닫기</button>
   </div>
-  <button onclick="document.getElementById('alert').style.display = 
-  'block';">버튼</button>
+
+  <button onclick="id_Alert('아이디 :')">버튼1</button>
+  <button onclick="id_Alert('비밀번호 :')">버튼2</button>
+
+  <script>
+
+    document.getElementById('close').addEventListener('click', function(){
+      document.getElementById('alert').style.display = 'none';
+    });
+
+    function openAlert(a1){
+      document.getElementById('alert').style.display = a1;
+    }
+
+    function id_Alert(a2) {
+      document.getElementsByClassName('title')[0].innerHTML = a2;
+      document.getElementById('alert').style.display = 'block';
+    }
+
+
+
+    // function password_Alert() {
+    //   document.getElementById('title').innerHTML = '비밀번호 : ';
+    //   document.getElementById('alert').style.display = 'block';
+    // }
+
+    // function closeAlert(){
+    //   document.getElementById('alert').style.display = 'none';
+    // }
+
+  </script>
 
 </body>
 
