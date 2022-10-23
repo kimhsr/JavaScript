@@ -7,11 +7,13 @@
 }
 
 .list-group {
-  display: none;
+  height: 0px;
+  overflow: hidden;
+  transition: all 1s;
 }
 
 .show {
-  display: block;
+  height: 207px;
 }
 
 .black-bg {
