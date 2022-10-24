@@ -16,6 +16,12 @@
   height: 207px;
 }
 
+.main-bg {
+  padding: 250px 20px;
+  background-color: darkgray;
+  color: white;
+}
+
 .black-bg {
   width : 100%;
   height : 100%;
