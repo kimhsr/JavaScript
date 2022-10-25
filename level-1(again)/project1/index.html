@@ -17,7 +17,7 @@
   <title>Hello, world!</title>
 </head>
 
-<body>
+<body id="body-color">
 
   <div class="black-bg">
     <div class="white-bg">
@@ -37,23 +37,6 @@
 
   <script>
 
-  
-    function 합격확인(num1, num2){
-      if(num1 + num2 >= 120 && num1 >= 40 && num2 >= 40){
-        console.log('합격');
-      } else {
-        console.log('불합격');
-      }
-    }
-
-    합격확인(50, 50);
-
-
-
-
-
-
-
     document.getElementById('submit').addEventListener('click', function(e){
       if(document.getElementById('email').value == ''){
         alert("아이디를 입력하세요");
@@ -71,14 +54,35 @@
 
   </script>
 
-  <nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-light bg-light navbar-color">
     <div class="container-fluid">
       <span class="navbar-brand">Navbar</span>
+      <span class="badge bg-dark">Light 🔄</span>
       <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
       </button>
     </div>
   </nav>
+
+  <script>
+
+    var badge_count = 0;
+
+    document.querySelector('.badge').addEventListener('click', function(){
+      badge_count++;
+      if(badge_count % 2 == 1){
+        document.querySelector('.badge').innerHTML = "Dark 🔄";
+        document.querySelector('#body-color').classList.toggle('dark');
+      } else {
+        document.querySelector('.badge').innerHTML = "Light 🔄";
+        document.querySelector('#body-color').classList.toggle('dark');
+      }
+    });
+
+    // badge 클릭 횟수가 홀수 클릭시 내부 글자를 Light로 변경
+    // badge 클릭 횟수가 짝수 클릭시 내부 글자를 Dark로 변경
+
+  </script>
 
   <ul class="list-group">
     <li class="list-group-item">An item</li>

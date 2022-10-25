@@ -1,3 +1,8 @@
+.dark {
+  background: black;
+  color: white;
+}
+
 .alert-box {
   background-color: darkblue;
   padding: 22px;
@@ -17,7 +22,7 @@
 }
 
 .main-bg {
-  padding: 250px 20px;
+  padding: 200px 20px;
   background-color: darkgray;
   color: white;
 }
