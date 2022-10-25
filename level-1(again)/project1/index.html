@@ -66,16 +66,14 @@
 
   <script>
 
-    var 예금액 = 60000;
-    var 미래예금액 = 0;
+    var first = 360;
+    var total = 0;
 
-    if(예금액 >= 50000){
-      미래예금액 = 예금액 * 1.2 * 1.2;
-    } else {
-      미래예금액 = 예금액 * 1.15 * 1.15;
-    }
-    
-    console.log(미래예금액);
+    second = first / 1.5;
+    third = second / 1.5;
+    last = first + second + third;
+
+    console.log(last);
 
 
 
