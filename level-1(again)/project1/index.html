@@ -66,13 +66,16 @@
 
   <script>
 
-    var 이름 = 'kim'; 
-    // 재선언 o, 재할당 o, 범위 Function-scoped
-    let 나이 = 23;
-    // 재선언 x, 재할당 o, 범위 {Block-scoped}
-    const 주소 = "서울시";
-    // 재선언 x, 재할당 x, 범위 {Block-scoped}
+    var 예금액 = 60000;
+    var 미래예금액 = 0;
 
+    if(예금액 >= 50000){
+      미래예금액 = 예금액 * 1.2 * 1.2;
+    } else {
+      미래예금액 = 예금액 * 1.15 * 1.15;
+    }
+    
+    console.log(미래예금액);
 
 
 
