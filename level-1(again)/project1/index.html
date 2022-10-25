@@ -37,22 +37,22 @@
 
   <script>
 
-    // input, change <input> 안에 뭔가 입력할 때 발생하는 이벤트
-    // document.getElementById('email').addEventListener('input', function(){
-    //   console.log('반갑습니다');
-    // });
-
-    function 삼육구게임(num) {
-      if(num % 9 == 0){
-        console.log('박수x2');
-      } else if(num % 3 == 0){
-        console.log('박수');
+  
+    function 합격확인(num1, num2){
+      if(num1 + num2 >= 120 && num1 >= 40 && num2 >= 40){
+        console.log('합격');
       } else {
-        console.log('통과');
+        console.log('불합격');
       }
     }
 
-    삼육구게임(18);
+    합격확인(50, 50);
+
+
+
+
+
+
 
     document.getElementById('submit').addEventListener('click', function(e){
       if(document.getElementById('email').value == ''){
