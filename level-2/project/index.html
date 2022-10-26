@@ -22,7 +22,7 @@
   <div class="black-bg">
     <div class="white-bg">
       <h4>로그인하세요</h4>
-        <form action="../project1/success.html">
+        <form action="../project/success.html">
           <div class="my-3">
             <input type="text" class="form-control" id="email">
            </div>
@@ -38,15 +38,23 @@
   <script>
 
     document.getElementById('submit').addEventListener('click', function(e){
-      if(document.getElementById('email').value == ''){
+      var user_id = document.getElementById('email').value;
+      var user_password = document.getElementById('password').value;
+      var regExp = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+
+      if(user_id == ''){
         alert("아이디를 입력하세요");
         e.preventDefault();
       }
-      if(document.getElementById('password').value == ''){
+      if(regExp.test(user_id) != true){
+        alert("이메일 형식이 아닙니다.");
+        e.preventDefault();
+      }
+      if(user_password.value == ''){
         alert("비밀번호를 입력하세요");
         e.preventDefault();
       }
-      if(document.getElementById('password').value.length < 6){
+      if(user_password.length < 6){
         alert("비밀번호를 6자 이상 입력해주세요")
         e.preventDefault();
       }
