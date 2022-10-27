@@ -64,7 +64,7 @@
 
   <nav class="navbar navbar-light bg-light navbar-color">
     <div class="container-fluid">
-      <span class="navbar-brand">Navbar</span>
+      <span class="navbar-brand">HAT SHOP</span>
       <span class="badge bg-dark">Light 🔄</span>
       <button class="navbar-toggler" type="button">
         <span class="navbar-toggler-icon"></span>
@@ -119,6 +119,63 @@
         document.querySelector('.alert').style.display = 'none';
       }
     }, 1000);
+
+  </script>
+  <div style="overflow: hidden;">
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="../assets/car1.png">
+      </div>
+      <div class="slide-box">
+        <img src="../assets/car2.png">
+      </div>
+      <div class="slide-box">
+        <img src="../assets/car3.png">
+      </div>
+    </div>
+  </div>
+
+  <button class="slide-1">1</button>
+  <button class="slide-2">2</button>
+  <button class="slide-3">3</button>
+  <button class="next">다음</button>
+  <button class="before">이전</button>
+
+  <script>
+
+    var img_count = 1;
+
+    document.querySelector('.slide-1').addEventListener('click', function(){
+      document.querySelector('.slide-container').style.transform = 'translateX(0vw)'
+    });
+
+    document.querySelector('.slide-2').addEventListener('click', function(){
+      document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
+    });
+
+    document.querySelector('.slide-3').addEventListener('click', function(){
+      document.querySelector('.slide-container').style.transform = 'translateX(-200vw)'
+    });
+
+    document.querySelector('.next').addEventListener('click', function(){
+      if (img_count == 1){
+        document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
+        img_count++;
+      } else if (img_count == 2){
+        document.querySelector('.slide-container').style.transform = 'translateX(-200vw)'
+        img_count++;
+      }
+    });
+
+    document.querySelector('.before').addEventListener('click', function(){
+      if (img_count == 3){
+        document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
+        img_count--;
+      } else if (img_count == 2){
+        document.querySelector('.slide-container').style.transform = 'translateX(0vw)'
+        img_count--;
+      }
+    });
 
   </script>
 
