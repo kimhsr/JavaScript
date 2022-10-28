@@ -1,3 +1,29 @@
+html, body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.content{
+  width: 100%;
+  background-color: #fafafa;
+}
+/* 프로그래스바 */
+.progressbar {
+  position: fixed; /* 페이지 상단에 프로그레스바 고정 */
+  height: 2px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 500;
+}
+.progressbar > .progress {
+  width: 0%; /* 프로그래스바 진행 정도 */
+  height: 100%;
+  transition: width 0.3s ease; /* 부드러운 가속도 애니메이션 추가 */
+  background-color: #000000;
+}
+
 .dark {
   background: black;
   color: white;
