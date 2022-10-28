@@ -147,14 +147,17 @@
 
     document.querySelector('.slide-1').addEventListener('click', function(){
       document.querySelector('.slide-container').style.transform = 'translateX(0vw)'
+      img_count = 1;
     });
 
     document.querySelector('.slide-2').addEventListener('click', function(){
       document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
+      img_count = 2;
     });
 
     document.querySelector('.slide-3').addEventListener('click', function(){
       document.querySelector('.slide-container').style.transform = 'translateX(-200vw)'
+      img_count = 3;
     });
 
     document.querySelector('.next').addEventListener('click', function(){
