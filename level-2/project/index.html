@@ -178,12 +178,15 @@
 
   <script>
 
-   console.log(ms(2, 10))
+    console.log(함수(10.3, true));
 
-   function ms(a,b){
-    var result = (a * 60 + b) * 1000;
-    return result
-  }
+    function 함수(a, b){
+      var result = a - (a * 0.1);
+      if (b == true){
+        result = result - 1.5;
+      }
+      return parseFloat(result.toFixed(2))
+    }
 
   </script>
 
