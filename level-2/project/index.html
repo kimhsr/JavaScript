@@ -26,6 +26,7 @@
   <div class="black-bg">
     <div class="white-bg">
       <h4>로그인하세요</h4>
+
         <form action="../project/success.html">
           <div class="my-3">
             <input type="text" class="form-control" id="email">
@@ -117,6 +118,25 @@
     <h4>모자 판매</h4>
     <button id="login" class="btn btn-danger">로그인</button>
   </div>
+
+  <script>
+
+    document.querySelector('.black-bg').addEventListener('click', function(e){
+
+      if(e.target == document.querySelector('.black-bg')) {
+        document.querySelector('.black-bg').classList.remove('show-modal');
+      }
+
+    });
+
+    // e.target; // 유저가 실제 누른것
+    // console.log(e.target);
+    // e.currentTarget; // 이벤트리스너 달린 곳
+    // this;
+    // e.preventDefault(); // 이벤트 기본동작 막아줌
+    // e.stopPropagation(); // 내 상위 요소로 이벤트 버블링 막아줌
+
+  </script>
 
   <div class='lorem' style="width: 200px; height: 100px; overflow-y: scroll">
     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae voluptas voluptatum minus praesentium fugit debitis at, laborum ipsa itaque placeat sit, excepturi eius. Nostrum perspiciatis, eligendi quae consectetur praesentium exercitationem.
