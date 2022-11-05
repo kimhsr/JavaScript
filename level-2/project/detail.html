@@ -57,6 +57,21 @@
       display: block;
     }
   </style>
+
+  <div class="container mt-3">
+    <div class="card p-3">
+      <span id="name">상품명</span>
+      <span id="price">가격</span>
+    </div>
+  </div>
+
+  <script>
+
+    var car2 = {name : '소나타', price : 50000};
+    document.getElementById('name').innerHTML = car2.name;
+    document.getElementById('price').innerHTML = car2.price;
+    
+  </script>
   
   <div class="container mt-5">
     <ul class="list">
