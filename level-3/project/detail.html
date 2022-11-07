@@ -82,6 +82,7 @@
     <select class="form-select mt-2">
       <option>모자</option>
       <option>셔츠</option>
+      <option>바지</option>
     </select>
     <select class="form-select mt-2 size-hide">
       <option>95</option>
@@ -96,13 +97,22 @@
       var value = this.value;
       if(value == '셔츠'){
         document.querySelectorAll('.form-select')[1].classList.remove('size-hide');
+        document.querySelectorAll('.form-select')[1].innerHTML = '';
+        var 셔츠 = `<option>95</option>
+                    <option>100</option>
+                    <option>105</option>`;
+                    document.querySelectorAll('.form-select')[1].insertAdjacentHTML('beforeend', 셔츠);
       }
-    });
-
-    document.querySelectorAll('.form-select')[0].addEventListener('input', function(){
-      var value = this.value;
-      if(value == '모자'){
+      else if(value == '모자'){
         document.querySelectorAll('.form-select')[1].classList.add('size-hide');
+      }
+      else if(value == '바지'){
+        document.querySelectorAll('.form-select')[1].classList.remove('size-hide');
+        document.querySelectorAll('.form-select')[1].innerHTML = '';
+        var 바지 = `<option>28</option>
+                      <option>29</option>
+                      <option>30</option>`;
+        document.querySelectorAll('.form-select')[1].insertAdjacentHTML('beforeend', 바지);
       }
     });
 
