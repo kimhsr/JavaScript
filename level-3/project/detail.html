@@ -93,15 +93,17 @@
 
   <script>
 
+    var shirts = [95, 100, 105];
+    var pants = [28, 30, 32, 34];
+
     document.querySelectorAll('.form-select')[0].addEventListener('input', function(){
       var value = this.value;
       if(value == '셔츠'){
         document.querySelectorAll('.form-select')[1].classList.remove('size-hide');
         document.querySelectorAll('.form-select')[1].innerHTML = '';
-        var 셔츠 = `<option>95</option>
-                    <option>100</option>
-                    <option>105</option>`;
-                    document.querySelectorAll('.form-select')[1].insertAdjacentHTML('beforeend', 셔츠);
+        shirts.forEach(function(data){
+          document.querySelectorAll('.form-select')[1].insertAdjacentHTML('beforeend', `<option>${data}</option>`);
+        });
       }
       else if(value == '모자'){
         document.querySelectorAll('.form-select')[1].classList.add('size-hide');
@@ -109,12 +111,17 @@
       else if(value == '바지'){
         document.querySelectorAll('.form-select')[1].classList.remove('size-hide');
         document.querySelectorAll('.form-select')[1].innerHTML = '';
-        var 바지 = `<option>28</option>
-                      <option>29</option>
-                      <option>30</option>`;
-        document.querySelectorAll('.form-select')[1].insertAdjacentHTML('beforeend', 바지);
+        pants.forEach((data) => {
+          document.querySelectorAll('.form-select')[1].insertAdjacentHTML('beforeend', `<option>${data}</option>`);
+        });
       }
     });
+
+    // var obj = {name : 'kim', age : 20};
+
+    // for (var key in obj){
+    //   console.log(obj[key]);
+    // }
 
   </script>
   
