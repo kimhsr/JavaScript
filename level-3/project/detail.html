@@ -123,11 +123,22 @@
     //   console.log(obj[key]);
     // }
 
-    for (var i=2; i<=9; i++){
-      for(var j=1; j<=9; j++){
-        console.log(i*j);
+    var result = 0;
+
+    function 함수(arr, b){
+      // arr 안에 있는 숫자들 평균내기
+      for(let i = 0; i < arr.length; i++){
+        result = result + arr[i];
+      }
+      if (result / arr.length < b){
+        console.log("올랐네요");
+      }
+      else {
+        console.log('재수하세요');
       }
     }
+
+    함수([40,40,40], 80);
 
   </script>
   
