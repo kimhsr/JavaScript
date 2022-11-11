@@ -66,8 +66,6 @@
 
     });
 
-    
-
     products.forEach(function(a, i){
       var card =
       `<div class="col-sm-4">
@@ -79,20 +77,23 @@
       document.querySelector('.row').insertAdjacentHTML('beforeend', card);
     });
 
-    // localStorage.setItem('이름', 'kim');
-    // localStorage.getItem('이름');
-    // localStorage.removeItem('이름');
-    
-    var arr = [1,2,3];
-    var newArr = JSON.stringify(arr);
+    function cartBuy(e){
+      var title = e.target.previousElementSibling.previousElementSibling.innerHTML;
+      if (localStorage.getItem('cart') != null){
+        var 꺼낸거 = JSON.parse(localStorage.getItem('cart'));
+        꺼낸거.push(title);
+        localStorage.setItem('cart', JSON.stringify(꺼낸거));
+      }
+      else {
+        localStorage.setItem('cart', JSON.stringify([title]));
+      }
+    }
 
-    localStorage.setItem('num', newArr);
-    var 꺼낸거1 = localStorage.getItem('num');
-    console.log(JSON.parse(꺼낸거1)[0]);
+    var buyClass = document.querySelectorAll('.buy');
 
-    sessionStorage.setItem('num', newArr);
-    var 꺼낸거2 = sessionStorage.getItem('num');
-    console.log(JSON.parse(꺼낸거1)[1]);
+    for(let i=0; i<buyClass.length; i++){
+      document.querySelectorAll('.buy')[i].addEventListener('click', cartBuy);
+    }
 
   </script>
 
