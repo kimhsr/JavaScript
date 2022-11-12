@@ -196,33 +196,41 @@
 
   </script>
 
-  <script>
-
-    console.log(함수(10.3, true));
-
-    function 함수(a, b){
-      var result = a - (a * 0.1);
-      if (b == true){
-        result = result - 1.5;
-      }
-      return parseFloat(result.toFixed(2))
-    }
-
-  </script>
-
   <div style="overflow: hidden;">
     <div class="slide-container">
       <div class="slide-box">
-        <img src="../assets/car1.png">
+        <img src="../assets/car1.png" draggable="false">
       </div>
       <div class="slide-box">
-        <img src="../assets/car2.png">
+        <img src="../assets/car2.png" draggable="false">
       </div>
       <div class="slide-box">
-        <img src="../assets/car3.png">
+        <img src="../assets/car3.png" draggable="false">
       </div>
     </div>
   </div>
+
+  <script>
+
+    let 시작좌표 = 0;
+    let 클릭 = false;
+
+    document.querySelectorAll('.slide-box')[0].addEventListener('mousedown', function(e){
+      시작좌표 = e.clientX;
+      클릭 = true;
+    });
+
+    document.querySelectorAll('.slide-box')[0].addEventListener('mousemove', function(e){
+      if(클릭 === true){
+        document.querySelector('.slide-container').style.transform = `translateX(${e.clientX - 시작좌표}px)`
+      }
+    });
+
+    document.querySelectorAll('.slide-box')[0].addEventListener('mouseup', function(e){
+      클릭 = false;
+    });
+
+  </script>
 
   <button class="slide-1">1</button>
   <button class="slide-2">2</button>
