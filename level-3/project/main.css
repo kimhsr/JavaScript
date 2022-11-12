@@ -16,3 +16,111 @@
   margin: auto;
   max-width: 80%;
 }
+
+html, body{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+.content{
+  width: 100%;
+  background-color: #fafafa;
+}
+/* 프로그래스바 */
+.progressbar {
+  position: fixed; /* 페이지 상단에 프로그레스바 고정 */
+  height: 2px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 500;
+}
+.progressbar > .progress {
+  width: 0%; /* 프로그래스바 진행 정도 */
+  height: 100%;
+  transition: width 0.3s ease; /* 부드러운 가속도 애니메이션 추가 */
+  background-color: #000000;
+}
+
+.dark {
+  background: black;
+  color: white;
+}
+
+.alert-box {
+  background-color: darkblue;
+  padding: 22px;
+  color: white;
+  border-radius: 5px;
+  display: none;
+}
+
+.list-group {
+  height: 0px;
+  overflow: hidden;
+  transition: all 1s;
+}
+
+.show {
+  height: 207px;
+}
+
+.main-bg {
+  padding: 200px 20px;
+  background-color: darkgray;
+  color: white;
+}
+
+.black-bg {
+  width : 100%;
+  height : 100%;
+  position : fixed;
+  background : rgba(0,0,0,0.5);
+  z-index : 6;
+  padding: 30px;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s;
+}
+
+.white-bg {
+  background: white;
+  border-radius: 5px;
+  padding: 30px;
+}
+
+.show-modal {
+  visibility: visible;
+  opacity: 1;
+}
+
+.alert {
+  display: block;
+  margin: 0px;
+}
+
+.slide-container {
+  width: 300vw;
+  transition: all 1s;
+}
+
+.slide-box {
+  width: 100vw;
+  float: left;
+}
+
+.slide-box img {
+  width: 100%;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 5;
+}
+
+.navbar-brand {
+  font-size: 30px;
+  transition: all 1s;
+}
