@@ -215,57 +215,183 @@
     let startCrdnt = 0;
     let pressed = false;
     
-    // PC 화면
-    document.querySelectorAll('.slide-box')[0].addEventListener('mousedown', function(e){
+    let checkMove = (current, start) => {
+      if (current - start < -150)
+        return 'left';
+      else if (current - start > 150)
+        return 'right';
+      else
+        return 'stay';
+    }
+    const mouseDownEvent = (e) => {
       startCrdnt = e.clientX;
       pressed = true;
-    });
+    }
 
-    document.querySelectorAll('.slide-box')[0].addEventListener('mousemove', function(e){
+    const slideContainer = document.querySelector('.slide-container');
+    const slideBox = document.querySelectorAll('.slide-box');
+    // PC 화면
+    // 1번 이미지
+    slideBox[0].addEventListener('mousedown', mouseDownEvent);
+
+    slideBox[0].addEventListener('mousemove', function(e){
       if(pressed === true){
-        document.querySelector('.slide-container').style.transform = `translateX(${e.clientX - startCrdnt}px)`
+        slideContainer.style.transform = `translateX(clamp(-100vw, ${e.clientX - startCrdnt}px, 0vw))`;
       }
     });
 
-    document.querySelectorAll('.slide-box')[0].addEventListener('mouseup', function(e){
+    slideBox[0].addEventListener('mouseup', function(e){
       pressed = false;
 
-      if(e.clientX - startCrdnt < -150){
-        document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
-        document.querySelector('.slide-container').style.transition = 'all 0.5s';
-      } else {
-        document.querySelector('.slide-container').style.transform = 'translateX(0vw)'
+      const direction = checkMove(e.clientX, startCrdnt);
+      if(direction === 'right'){
+        slideContainer.style.transform = 'translateX(0vw)'
+        slideContainer.style.transition = 'all 0.5s';
+      } 
+      else if (direction === 'left') {
+        slideContainer.style.transform = 'translateX(-100vw)'
+        slideContainer.style.transition = 'all 0.5s';
+      }
+      else {
+        slideContainer.style.transform = 'translateX(0vw)'
       }
       setTimeout(()=>{
-        document.querySelector('.slide-container').style.transition = 'none';
+        slideContainer.style.transition = 'none';
       }, 500);
     });
 
-    // 모바일 화면
-    document.querySelectorAll('.slide-box')[0].addEventListener('touchstart', function(e){
-      startCrdnt = e.touches[0].clientX;
-      pressed = true;
-    });
+    // PC 화면
+    // 2번 이미지
+    slideBox[1].addEventListener('mousedown', mouseDownEvent);
 
-    document.querySelectorAll('.slide-box')[0].addEventListener('touchmove', function(e){
+    slideBox[1].addEventListener('mousemove', function(e){
       if(pressed === true){
-        document.querySelector('.slide-container').style.transform = `translateX(${e.touches[0].clientX - startCrdnt}px)`
+        slideContainer.style.transform = `translateX(clamp(-200vw, calc(-100vw + ${e.clientX - startCrdnt}px), 100vw))`;
       }
     });
 
-    document.querySelectorAll('.slide-box')[0].addEventListener('touchend', function(e){
+    slideBox[1].addEventListener('mouseup', function(e){
       pressed = false;
 
-      if(e.changedTouches[0].clientX - startCrdnt < -150){
-        document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
-        document.querySelector('.slide-container').style.transition = 'all 0.5s';
-      } else {
-        document.querySelector('.slide-container').style.transform = 'translateX(0vw)'
+      const direction = checkMove(e.clientX, startCrdnt);
+      if(direction === 'right'){
+        slideContainer.style.transform = 'translateX(0vw)'
+        slideContainer.style.transition = 'all 0.5s';
+      } 
+      else if (direction === 'left') {
+        slideContainer.style.transform = 'translateX(-200vw)'
+        slideContainer.style.transition = 'all 0.5s';
+      }
+      else {
+        slideContainer.style.transform = 'translateX(-100vw)'
       }
       setTimeout(()=>{
-        document.querySelector('.slide-container').style.transition = 'none';
+        slideContainer.style.transition = 'none';
       }, 500);
     });
+
+    // PC 화면
+    // 3번 이미지
+    slideBox[2].addEventListener('mousedown', mouseDownEvent);
+
+    slideBox[2].addEventListener('mousemove', function(e){
+      if(pressed === true){
+        slideContainer.style.transform = `translateX(clamp(-200vw, calc(-200vw + ${e.clientX - startCrdnt}px), -100vw))`;
+      }
+    });
+
+    slideBox[2].addEventListener('mouseup', function(e){
+      pressed = false;
+
+      const direction = checkMove(e.clientX, startCrdnt);
+      if(direction === 'right'){
+        slideContainer.style.transform = 'translateX(-100vw)'
+        slideContainer.style.transition = 'all 0.5s';
+      } 
+      else if (direction === 'left') {
+        slideContainer.style.transform = 'translateX(-200vw)'
+        slideContainer.style.transition = 'all 0.5s';
+      }
+      else {
+        slideContainer.style.transform = 'translateX(-200vw)'
+      }
+      setTimeout(()=>{
+        slideContainer.style.transition = 'none';
+      }, 500);
+    });
+
+    // // 모바일 화면
+    // // 1번 이미지
+    // document.querySelectorAll('.slide-box')[0].addEventListener('touchstart', function(e){
+    //   startCrdnt = e.touches[0].clientX;
+    //   pressed = true;
+    // });
+
+    // document.querySelectorAll('.slide-box')[0].addEventListener('touchmove', function(e){
+    //   if(pressed === true){
+    //     document.querySelector('.slide-container').style.transform = `translateX(${e.touches[0].clientX - startCrdnt}px)`
+    //   }
+    // });
+
+    // document.querySelectorAll('.slide-box')[0].addEventListener('touchend', function(e){
+    //   pressed = false;
+
+    //   if(e.changedTouches[0].clientX - startCrdnt < -150){
+    //     document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
+    //     document.querySelector('.slide-container').style.transition = 'all 0.5s';
+    //   } else {
+    //     document.querySelector('.slide-container').style.transform = 'translateX(0vw)'
+    //   }
+    //   setTimeout(()=>{
+    //     document.querySelector('.slide-container').style.transition = 'none';
+    //   }, 500);
+    // });
+
+    // // pc 다른 방식
+    // let startPoint = 0;
+    // let endPoint = 0;
+
+    // document.querySelectorAll('.slide-box')[0].addEventListener('mousedown', function(e){
+    //   console.log('mousedown', e.pageX);
+    //   startPoint = e.pageX;
+    // });
+
+    // document.querySelectorAll('.slide-box')[0].addEventListener('mouseup', function(e){
+    //   console.log('mouseup', e.pageX);
+    //   endPoint = e.pageX;
+    //   //if(startPoint > endPoint){
+    //   if(endPoint - startPoint < -150) {
+    //     document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
+    //     document.querySelector('.slide-container').style.transition = 'all 0.5s';
+    //   }
+    // });
+
+    // document.querySelectorAll('.slide-box')[1].addEventListener('mousedown', function(e){
+    //   console.log('mousedown', e.pageX);
+    //   startPoint = e.pageX;
+    // });
+
+    // document.querySelectorAll('.slide-box')[1].addEventListener('mouseup', function(e){
+    //   console.log('mouseup', e.pageX);
+    //   endPoint = e.pageX;
+    //   if(startPoint > endPoint){
+    //     document.querySelector('.slide-container').style.transform = 'translateX(-200vw)'
+    //     document.querySelector('.slide-container').style.transition = 'all 0.5s';
+    //   }
+    //   else {
+    //     document.querySelector('.slide-container').style.transform = 'translateX(0vw)'
+    //     document.querySelector('.slide-container').style.transition = 'all 0.5s';
+    //   }
+    // });
+
+    // document.querySelectorAll('.slide-box')[2].addEventListener('mouseup', function(e){
+    //   console.log('mouseup', e.pageX);
+    //   endPoint = e.pageX;
+    //   if(startPoint < endPoint){
+    //     document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
+    //     document.querySelector('.slide-container').style.transition = 'all 0.5s';
+    //   }
+    // });
 
   </script>
 
@@ -309,7 +435,7 @@
         document.querySelector('.slide-container').style.transform = 'translateX(-100vw)'
         img_count--;
       } else if (img_count == 2){
-        document.querySelector('.slide-container').style.transform = 'translateX(0vw)'
+        slideContainer.style.transform = 'translateX(0vw)'
         img_count--;
       }
     });
