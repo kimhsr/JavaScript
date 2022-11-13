@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="quiz">
+    <h4>물에 빠지면 누구 먼저 구할 것인가?</h4>
+    <button>애인</button>
+    <button>부모님</button>
+    <button>반려동물</button>
+  </div>
+
+  <script>
+
+    document.querySelector('#quiz').addEventListener('click', function(e){
+      switch (e.target.innerHTML){
+        case '애인':
+          alert('애인을 좋아하시네요');
+          break
+        case '부모님':
+          alert('효자네요');
+          break
+        default :
+          alert('사람보다 동물을 더 좋아하시네요');
+      }
+    });
+
+  </script>
+
+</body>
+</html>
